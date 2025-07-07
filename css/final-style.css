@@ -283,9 +283,26 @@ body {
   max-width: 500px;
   perspective: 500px; 
 }
+
+.lotus-glow {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background: radial-gradient(ellipse at center, rgba(255, 182, 193, 0.7) 0%, rgba(255, 182, 193, 0.1) 80%);
+  filter: blur(45px);
+  opacity: 1; /* Make sure it's visible */
+  transition: opacity 1s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .lotus-gif {
   width: 100%;
-  transform: rotateX(25deg) scale(1.2); 
+  transform: rotateX(25deg) scale(1.2);
+  z-index: 1; 
 }
 #text-container {
   position: absolute;
