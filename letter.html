@@ -74,47 +74,34 @@
 
       <a href="index.html" class="restart-link">Relive our moment?</a>
     </main>
-    <audio
-      id="bg-music"
-      src="assets/song.mp3"
-      type="audio/mp3"
-      autoplay
-      loop
-      muted
-    ></audio>
 
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        document.body.classList.add("fade-in");
 
-        const audio = document.getElementById("bg-music");
+    <audio id="bg-music" src="assets/song.mp3" autoplay loop playsinline muted></audio>
 
-        // Try unmuting & playing after short delay
-        setTimeout(() => {
-          audio.muted = false;
-          const playPromise = audio.play();
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+    const audio = document.getElementById("bg-music");
 
-          if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                console.log("Music is playing 🎵");
-              })
-              .catch((err) => {
-                console.warn(
-                  "Autoplay blocked. Will play on user interaction."
-                );
-                // OPTIONAL: Wait for click/scroll
-                const resumeMusic = () => {
-                  audio.play();
-                  document.removeEventListener("click", resumeMusic);
-                  document.removeEventListener("scroll", resumeMusic);
-                };
-                document.addEventListener("click", resumeMusic);
-                document.addEventListener("scroll", resumeMusic);
-              });
-          }
-        }, 500);
-      });
-    </script>
+    // Step 1: Attempt to autoplay (muted)
+    audio.muted = true;
+    audio.play().then(() => {
+      // Step 2: Unmute after a slight delay
+      setTimeout(() => {
+        audio.muted = false;
+      }, 500);
+    }).catch(() => {
+      // Step 3: If autoplay fails, wait for a user interaction
+      const unlockAudio = () => {
+        audio.muted = false;
+        audio.play();
+        document.removeEventListener("click", unlockAudio);
+        document.removeEventListener("touchstart", unlockAudio);
+      };
+      document.addEventListener("click", unlockAudio);
+      document.addEventListener("touchstart", unlockAudio);
+    });
+  });
+</script>
   </body>
 </html>
