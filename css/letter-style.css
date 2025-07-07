@@ -1,0 +1,99 @@
+/* letter-style.css */
+
+html {
+  overflow-x: hidden;
+  background-color: #3a3a3a; /* The dark "desk" color for the side gutters */
+}
+
+body {
+  margin: 0;
+  font-family: 'Zeyada', cursive;
+  position: relative;
+  z-index: 0;
+  background-color: #faf3e0; /* The solid cream paper color */
+}
+
+
+/* This section contains YOUR custom changes */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('../assets/letterbg.jpg');
+  background-size: cover;
+  background-repeat: repeat-y;
+  opacity: 0.8;
+  transform: rotate(-180deg);
+  pointer-events: none;
+}
+
+/* THE FIX IS HERE: The bottom padding is now a small, fixed value */
+.letter-content {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  /* Reduced bottom padding to end the page cleanly */
+  padding: 10vh 0 8rem 0;
+}
+
+/* All other text styling remains the same */
+h1 {
+  font-size: 5rem;
+  color: #0d2145;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 3rem;
+  text-shadow: 1px 1px 2px rgba(13, 33, 69, 0.2);
+}
+
+p {
+  font-size: 2.8rem; 
+  color: #0d2145;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(13, 33, 69, 0.2);
+}
+
+.final-regards {
+  margin-top: 3rem;
+}
+
+.signature {
+  margin-top: 4rem;
+  text-align: right;
+  font-size: 3rem;
+}
+
+.signature p {
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.restart-link {
+  display: block;
+  margin: 5vh auto 0 auto; /* Top margin, centered horizontally */
+  font-size: 3.5rem; /* Bigger */
+  text-align: center;
+  color: rgba(13, 33, 69, 0.9);
+  text-decoration: none;
+  transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.restart-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 
+               0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+body {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+body.fade-in {
+  opacity: 1;
+}

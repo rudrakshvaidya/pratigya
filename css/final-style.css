@@ -1,0 +1,448 @@
+/*
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff; 
+  font-family: 'Satisfy', cursive;
+  overflow: hidden; 
+  color: #333;
+}
+
+.scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.lotus-container {
+  position: absolute;
+  bottom: 5%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw; 
+  max-width: 500px;
+  perspective: 500px; 
+}
+
+.lotus-gif {
+  width: 100%;
+  transform: rotateX(50deg) scale(1.2); 
+}
+
+#text-container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  z-index: 10;
+}
+
+#text-container p {
+  font-size: 3rem; 
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+  position: absolute;
+  width: 100%;
+  left: 0;
+  opacity: 0; 
+}
+
+
+#cake-scene {
+  opacity: 0; 
+}
+
+.cake-container {
+  position: relative;
+}
+
+.cake-image {
+  width: 80vw;
+  max-width: 400px;
+}
+
+
+
+.letter-link {
+  transition: transform 0.3s ease;
+}
+
+.letter-link:hover {
+  transform: scale(1.05);
+}
+
+.letter-image {
+  width: 200px; 
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+#letter-prompt {
+  color: #555;
+  font-size: 1.8rem;
+  position: absolute;
+  top: 35%; 
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#letter-prompt .arrow-icon {
+    width: 40px;
+    transform: scaleY(-1) rotate(10deg);
+}
+
+#flame {
+  position: absolute;
+  top: 18%; 
+  left: 48%; 
+transform: translateX(-50%);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#flame img {
+  width: 40px;
+}
+
+#flame:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+#blow-candle-prompt {
+  color: #ccc;
+  font-size: 1.8rem;
+  position: absolute;
+
+  top: 15%; 
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#blow-candle-prompt .arrow-icon {
+    width: 40px;
+    transform: rotate(190deg); 
+}
+
+#celebration-scene {
+  pointer-events: none; 
+  z-index: 100; 
+  justify-content: flex-start;
+  padding-top: 15vh;
+}
+
+#confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; 
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -20px; 
+  border-radius: 50%;
+}
+
+#birthday-text {
+  font-size: 6rem;
+  z-index: 2;
+  color: #d81b60; 
+}
+
+#final-message {
+  font-size: 2.5rem;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 2;
+}
+
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#restart-prompt {
+  color: #555; 
+  font-size: 1.8rem;
+  position: absolute;
+  bottom: 30%; 
+  left: 50%;
+  transform: translateX(-50%) rotate(5deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 101; 
+}
+
+#restart-prompt .arrow-icon {
+    width: 40px;
+    transform: rotate(15deg);
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+
+#decoration-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99;
+}
+
+
+.balloon {
+  position: absolute;
+  bottom: -150px; 
+  width: 50px;
+  height: 65px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: float 10s infinite linear;
+}
+
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 50px;
+  background-color: #aaa;
+}
+  
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(253, 250, 253); 
+  font-family: 'Satisfy', cursive;
+  overflow: hidden; 
+  color: #333;
+}
+
+/* GENERAL SCENE SETUP */
+.scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* SCENE 1: LOTUS */
+.lotus-container {
+  position: absolute;
+  bottom: 8%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw; 
+  max-width: 500px;
+  perspective: 500px; 
+}
+.lotus-gif {
+  width: 100%;
+  transform: rotateX(25deg) scale(1.2); 
+}
+#text-container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  z-index: 10;
+}
+#text-container p {
+  font-size: 3rem; 
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+  position: absolute;
+  width: 100%;
+  left: 0;
+  opacity: 0; /* JS will handle this */
+}
+
+/* SCENE 2: CAKE */
+/* The initial opacity:0 is removed. JS now has full control. */
+.cake-container {
+  position: relative;
+}
+.cake-image {
+  width: 80vw;
+  max-width: 400px;
+}
+#flame {
+  position: absolute;
+  /* !!! IMPORTANT: Fine-tune top/left for your cake image !!! */
+  top: 1%; 
+  left: 50.5%; 
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#flame img {
+  width: 40px;
+}
+#flame:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+#blow-candle-prompt {
+  color: #ccc;
+  font-size: 1.8rem;
+  position: absolute;
+  top: 15%; 
+  left: 53%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#blow-candle-prompt .arrow-icon {
+    position: relative;
+    top: 60px; /* Adjusts vertical alignment */
+    left: -45%;
+    width: 60px;
+    transform: rotate(80deg);
+}
+
+/* SCENE 3: CELEBRATION */
+#celebration-scene {
+  pointer-events: none; 
+  z-index: 100; 
+  justify-content: center; /* This centers the content vertically */
+  padding-top: 0; /* No longer needed */
+}
+
+#confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; 
+}
+#birthday-text {
+  font-size: 6rem;
+  z-index: 2;
+  color: #d81b60; 
+}
+#final-message {
+  font-size: 2.5rem;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 2;
+  position: absolute; /* Allows it to overlap with the HBD text */
+}
+
+/* SCENE 4: LETTER (Consolidated Styles) */
+#letter-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.letter-link {
+  transition: transform 0.3s ease;
+}
+.letter-link:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+.letter-image {
+  width: 200px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+.prompt-text {
+  color: #555;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.prompt-text .arrow-icon {
+  width: 40px;
+  transform: rotate(-190deg);
+}
+
+
+/* CELEBRATION ANIMATIONS (Confetti & Balloons) */
+@keyframes float {
+  from { transform: translateY(-10vh); opacity: 1; }
+  to { transform: translateY(110vh); opacity: 0; }
+}
+.confetti-piece, .balloon {
+  position: absolute;
+  animation-name: float;
+  animation-timing-function: linear;
+  animation-iteration-count: 1; /* Animation plays once per element */
+}
+.confetti-piece {
+  width: 10px;
+  height: 10px;
+  top: -20px; 
+  border-radius: 50%;
+}
+.balloon {
+  bottom: -150px; 
+  width: 50px;
+  height: 65px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation-name: float; /* Re-using the same keyframes */
+}
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 50px;
+  background-color: #aaa;
+}

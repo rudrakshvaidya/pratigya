@@ -1,0 +1,268 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #fde2e4;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 50px 30px 30px 30px; /* Pink margin frame */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* MAIN CONTENT WRAPPER */
+#page-content {
+  background-image: url('../assets/notebook-grid.png');
+  background-size: 500px;
+  background-repeat: repeat;
+  background-color: white;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+  overflow-x: hidden;
+}
+
+/* SCROLL PROMPT */
+#scroll-prompt {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  color: #eca797;
+  font-family: 'Zeyada', cursive;
+  font-size: 2.2rem;
+  pointer-events: none;
+}
+
+/* TITLE SECTION */
+#title-block {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle, .main-title {
+  font-family: 'Zeyada', cursive;
+  color: #111;
+}
+
+.subtitle {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-size: 5rem;
+  margin-top: 0;
+}
+
+/* DECORATIONS */
+.decoration {
+  position: absolute;  /* changed from absolute */
+  z-index: 20;
+  opacity: 1;
+  pointer-events: none;
+}
+
+#corner-ribbon {
+  width: 250px;
+  top: 20px;
+  left: -5px;
+  
+}
+
+#balloon-1 {
+  width: 250px;
+  top: 100px;
+  right: -50px;
+  transform: rotate(10deg);
+  
+}
+
+#balloon-2 {
+  width: 190px;
+  top: 10px;
+  right: 45px;
+  
+}
+
+/* CONTENT SECTIONS */
+.content-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0 50px;
+  gap: 40px;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.alt-left {
+  flex-direction: row;
+}
+
+.alt-right {
+  flex-direction: row-reverse;
+}
+
+/* TEXT & IMAGE BLOCKS */
+.text-block,
+.image-block {
+  opacity: 0;
+  transform: translateY(50px);
+  max-width: 45%;
+}
+
+.text-block {
+  text-align: left;
+}
+
+.text-block p {
+  font-family: 'Zeyada', cursive;
+  font-size: 3rem;
+  line-height: 1.6;
+  color: #0A2342;
+  word-break: break-word;
+  text-wrap: balance;
+}
+
+.alt-left .text-block {
+  text-align: left;
+}
+
+.alt-right .text-block {
+  text-align: right;
+}
+
+.image-block {
+  position: relative;
+  transform: rotate(-2deg);
+  max-width: 38%; /* was 45% */
+}
+
+
+.image-block img:first-child {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.tape {
+  position: absolute;
+  top: -50px;
+  left: 90%;
+  transform: translateX(-50%) rotate(44deg);
+  width: 250px;
+  z-index: 2;
+}
+
+/* SPACER AFTER LAST SECTION */
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Main container for the whole section */
+#final-cta {
+  position: relative; /* Allows absolute positioning for the prompt */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0; /* Added more padding for space */
+   /* Ensures there's enough space for positioning */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* The new wrapper for the lilypad and lotus */
+.flower-container {
+  position: relative; /* This is the key for stacking children */
+  width: 150px; /* Set a fixed size for the container */
+  height: 150px;
+}
+
+/* The lilypad image (the bottom layer) */
+.lillypad-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  rotate: -30deg; /* Slightly tilted */
+  z-index: 1; /* Sits at the bottom */
+}
+
+/* The lotus button link (the top layer) */
+#lotus-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Sits on top of the lilypad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* The spinning lotus image itself */
+.lotus-image {
+  width: 130px; /* Make the lotus slightly smaller than the pad */
+  height: auto;
+  animation: spin 15s linear infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+#lotus-button:hover .lotus-image {
+  /* 1. Pause the spinning animation */
+  animation-play-state: paused;
+  
+  /* 2. Apply the new transform for the hover state */
+  /* I made it slightly more dramatic to be more noticeable */
+  transform: scale(1.15) rotate(25deg); 
+}
+
+/* REVISED "Click here" prompt */
+#click-prompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Move it up and to the left, and rotate it more */
+  transform: translate(-170px, -100px) rotate(-25deg); 
+
+  font-family: 'Zeyada', cursive;
+  font-size: 1.8rem; /* Smaller font size */
+  color: #333; /* Black color */
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The hand-drawn arrow image */
+.arrow-icon {
+  width: 40px; /* Slightly smaller arrow */
+  transform: rotate(10deg);
+}

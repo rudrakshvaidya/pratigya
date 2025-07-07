@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Diary Of You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/diary-style.css">
+</head>
+<body>
+    
+<img src="assets/ribbon-corner.png" class="decoration" id="corner-ribbon" alt="Ribbon">
+    <img src="assets/balloon-pink.png" class="decoration" id="balloon-1" alt="Balloon">
+    <img src="assets/balloon-gold.png" class="decoration" id="balloon-2" alt="Balloon">
+  <!-- Scroll Prompt is outside the main content -->
+  <section id="scroll-prompt">
+      <p>Scroll down slowly</p>
+  </section>
+
+  
+  <!-- This container holds all the page content that will be styled and animated -->
+  <div id="page-content">
+    
+  
+    <!-- DECORATIONS ARE NOW INSIDE the container to be part of the visual page -->
+    
+
+    <!-- Title Section -->
+    <section id="title-block">
+      <p class="subtitle">My dear Pratigya</p>
+      <h1 class="main-title">A LETTER FOR YOU</h1>
+    </section>
+
+    <!-- Content with Alternating Layout -->
+    <section class="content-section alt-left" id="content-1">
+      <div class="text-block"><p>It began the moment I saw you—a quiet shift in the universe...</p></div>
+      <div class="image-block"><img src="./src/images/image1.png" alt="A meaningful photograph"><img class="tape" src="assets/washi-tape-hearts.png" alt="Tape"></div>
+    </section>
+
+    <section class="content-section alt-right" id="content-2">
+      <div class="text-block"><p>In the melody of my life, you are the most beautiful verse...</p></div>
+      <div class="image-block"><img src="./src/images/image2.png" alt="Another meaningful photograph"><img class="tape" src="assets/washi-tape-hearts.png" alt="Tape"></div>
+    </section>
+
+    <section class="content-section alt-left" id="content-3">
+      <div class="text-block"><p>Loving you is like breathing; how could I ever stop?</p></div>
+      <div class="image-block"><img src="./src/images/image3.png" alt="A third meaningful photograph"><img class="tape" src="assets/washi-tape-hearts.png" alt="Tape"></div>
+    </section>
+
+    <section class="content-section alt-right" id="content-4">
+      <div class="text-block"><p>And I hope, for all my days to come, that my world continues...</p></div>
+      <div class="image-block"><img src="./src/images/image4.png" alt="A final meaningful photograph"><img class="tape" src="assets/washi-tape-hearts.png" alt="Tape"></div>
+    </section>
+    
+
+  </div> <!-- End of page-content -->
+
+  <div id="final-cta">
+  <!-- The prompt text is still a direct child of the main container -->
+  <p id="click-prompt">
+    Click here
+    <img src="assets/hand-drawn-arrow.png" alt="arrow pointing to the flower" class="arrow-icon">
+  </p>
+
+  <!-- NEW: A dedicated container for the flower and pad -->
+  <div class="flower-container">
+    <img src="assets/lillypad.png" alt="Lillypad" class="lillypad-image">
+    <a href="final.html" id="lotus-button">
+      <img src="assets/lotus.png" alt="Continue to the final message" class="lotus-image">
+    </a>
+  </div>
+</div>
+
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="./js/diary.js"></script>
+</body>
+</html>
